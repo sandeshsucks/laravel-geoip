@@ -183,19 +183,19 @@ class GeoIP {
 		}
 
 		try {
-			$record = $this->maxmind->city($ip);
+			$record = $this->maxmind->country($ip);
 
 			$location = array(
 				"ip"			=> $ip,
 				"isoCode" 		=> $record->country->isoCode,
 				"country" 		=> $record->country->name,
-				"city" 			=> $record->city->name,
-				"state" 		=> $record->mostSpecificSubdivision->isoCode,
-				"postal_code"   => $record->postal->code,
-				"lat" 			=> $record->location->latitude,
-				"lon" 			=> $record->location->longitude,
-				"timezone" 		=> $record->location->timeZone,
-				"continent"		=> $record->continent->code,
+				"city" 			=> "city",
+				"state" 		=> "state",
+				"postal_code"   => "postal_code",
+				"lat" 			=> "lat",
+				"lon" 			=> "lon",
+				"timezone" 		=> "timezone",
+				"continent"		=> "continent",
 				"default"       => false,
 			);
 		}
